@@ -1,23 +1,17 @@
-SELECT authors.name,
-       COUNT(log.time)
-FROM log
-JOIN articles
-ON log.path LIKE CONCAT('%', articles.slug, '%')
-JOIN authors
-ON authors.id = articles.author
+SELECT author,
+       COUNT(viewtime)
+FROM times
 GROUP BY 1
-ORDER BY 2 DESC
+ORDER BY 2 DESC;
 
 
-SELECT articles.title,
-       COUNT(log.time)
-FROM log
-JOIN articles
-ON log.path LIKE CONCAT('%', articles.slug, '%')
+SELECT article,
+       COUNT(viewtime)
+FROM times
 GROUP BY 1
-ORDER BY 2 DESC
+ORDER BY 2 DESC;
 
-/*
+
 WITH trunc_date AS (
   SELECT SUM(CASE log.status like '200%' WHEN 't' THEN 1
          ELSE 0
@@ -38,4 +32,3 @@ SELECT bad/(bad+good+0.0)*100 as percent,
        day
 FROM trunc_date
 WHERE bad/(bad+good+0.0) > 0.01
-*/
