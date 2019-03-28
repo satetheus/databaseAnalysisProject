@@ -14,30 +14,38 @@ def runSQLFile(filePath):
 
 
 def parsePopAuthor():
+    parsedList = ['\nTop Authors:']
     authorList = runSQLFile('queries/popAuthor.sql')
-    print('\nTop Authors:')
     for author in authorList:
-        print("  {} - {} veiws".format(author[0], int(author[1])))
+        parsedList.append("  {} - {} veiws".format(author[0], int(author[1])))
+    return parsedList
 
 
 def parsePopArticle():
+    parsedList = ['\nTop 3 Articles:']
     articleList = runSQLFile('queries/popArticle.sql')
-    print('\nTop 3 Articles:')
     for article in articleList:
-        print("  {} - {} veiws".format(article[0], int(article[1])))
+        parsedList.append("  {} - {} veiws".format(article[0], int(article[1])))
+    return parsedList
 
 
 def parseHigh404():
+    parsedList = ['\nDays with more than 1.5% of responses ending in 404:']
     list404 = runSQLFile('queries/high404.sql')
-    print('\nDays with more than 1.5% of responses ending in 404:')
     for error in list404:
         day = str(error[-1])[:str(error[-1]).index(' ')]
         percent = str(float(error[0]))
         percent = percent[:percent.index('.')+3]
-        print("  {}: {}% 404 Responses".format(day, percent))
+        parsedList.append("  {}: {}% 404 Responses".format(day, percent))
+    return parsedList
 
 
 if __name__ == "__main__":
-    parsePopAuthor()
-    parsePopArticle()
-    parseHigh404()
+    authors = parsePopAuthor()
+    [print(x) for x in authors]
+
+    articles = parsePopArticle()
+    [print(x) for x in articles]
+
+    errors = parseHigh404()
+    [print(x) for x in errors]
