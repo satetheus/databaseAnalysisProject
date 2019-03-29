@@ -55,8 +55,8 @@ def parsePopArticle():
     """
     parsedList = ['\nTop 3 Articles:']
     articleList = runSQLFile('queries/popArticle.sql')
-    for article in articleList:
-        parsedList.append("  {} - {} veiws".format(article[0], int(article[1])))
+    for art in articleList:
+        parsedList.append("  {} - {} veiws".format(art[0], int(art[1])))
     return parsedList
 
 
