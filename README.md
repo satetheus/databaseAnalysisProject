@@ -18,18 +18,18 @@ A tool for analysis of the newsdata database.
 
   Contents of setup/views.sql:
 
-    ```sql
-    CREATE OR REPLACE VIEW times AS
-      SELECT articles.title AS article,
-             authors.name AS author,
-             COUNT(log.time) as number_of_views
-      FROM log
-      JOIN articles
-      ON log.path LIKE CONCAT('%', articles.slug, '%')
-      JOIN authors
-      ON authors.id = articles.author
-      GROUP BY 1, 2
-    ```
+```sql
+CREATE OR REPLACE VIEW times AS
+  SELECT articles.title AS article,
+         authors.name AS author,
+         COUNT(log.time) as number_of_views
+  FROM log
+  JOIN articles
+  ON log.path LIKE CONCAT('%', articles.slug, '%')
+  JOIN authors
+  ON authors.id = articles.author
+  GROUP BY 1, 2
+```
 
   3. Install all the modules from "setup/requirements.txt", you can run the following command:
        ```bash
