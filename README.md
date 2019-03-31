@@ -1,5 +1,5 @@
 # fsnd-1
-A tool for analysis of the newsdata database.
+A tool for analysis of the newsdata database. This connects to the database, then runs queries to find the authors with the most views, the 3 articles with the most views, & days with more than 1% of it's responses being 404. Output when ran from the commandline/terminal is for human readability, not interaction with other programs or tools.
 
 ## Dependencies:
   | Dependency | Supported Version |
