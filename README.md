@@ -17,6 +17,7 @@ A tool for analysis of the newsdata database.
   2. Run "setup/views.sql" to setup the required views for this tool.
 
     Contents of setup/views.sql:
+    
     ``` sql
     CREATE OR REPLACE VIEW times AS
       SELECT articles.title AS article,
