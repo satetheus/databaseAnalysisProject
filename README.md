@@ -18,7 +18,7 @@ A tool for analysis of the newsdata database.
 
   Contents of setup/views.sql:
 
-    ``` sql
+    ```sql
     CREATE OR REPLACE VIEW times AS
       SELECT articles.title AS article,
              authors.name AS author,
