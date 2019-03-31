@@ -71,7 +71,7 @@ def parseHigh404():
       List of strings for the high 404 response days, starting with a
       header at parsedList[0], & a set of days with above 1.5% 404 responses.
     """
-    parsedList = ['\nDays with more than 1.5% of responses ending in 404:']
+    parsedList = ['\nDays with more than 1% of responses ending in 404:']
     list404 = runSQLFile('queries/high404.sql')
     for error in list404:
         day = str(error[-1])[:str(error[-1]).index(' ')]
