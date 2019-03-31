@@ -10,7 +10,11 @@ A tool for analysis of the newsdata database.
 
 
 ## Setup:
-  1. Run "setup/views.sql" to setup the required views for this tool.
+  1. Clone the fsnd-1 repository. You can run:
+  ```bash
+  git clone https://github.com/satetheus/fsnd-1
+  ```
+  2. Run "setup/views.sql" to setup the required views for this tool.
     - Contents of setup/views.sql:
     ``` sql
     CREATE OR REPLACE VIEW times AS
@@ -25,12 +29,12 @@ A tool for analysis of the newsdata database.
       GROUP BY 1, 2
     ```
 
-  2. Install all the modules from "setup/requirements.txt", you can run the following command:
+  3. Install all the modules from "setup/requirements.txt", you can run the following command:
        ```bash
        pip install -r setup/requirements.txt
        ```
 
-  3. Fill out the values in setup/authfile.py to match the values for the PostgreSQL table:
+  4. Fill out the values in setup/authfile.py to match the values for the PostgreSQL table:
 
 
   | Variable name | Variable values        |
@@ -39,13 +43,12 @@ A tool for analysis of the newsdata database.
   | dbuser        | PostgreSQL username    |
   | userPass      | User password          |
 
-
   Example:
-```python
-dbname="my_database"
-dbuser="me!"
-userPass="imnottellingyou"
-```
+  ```python
+  dbname="my_database"
+  dbuser="me!"
+  userPass="imnottellingyou"
+  ```
 
 
 ## Running from commandline/terminal:
