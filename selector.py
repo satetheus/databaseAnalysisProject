@@ -73,11 +73,8 @@ def parseHigh404():
     """
     parsedList = ['\nDays with more than 1% of responses ending in 404:']
     list404 = runSQLFile('queries/high404.sql')
-    for error in list404:
-        day = str(error[-1])[:str(error[-1]).index(' ')]
-        percent = str(float(error[0]))
-        percent = percent[:percent.index('.')+3]
-        parsedList.append("  {}: {}% 404 Responses".format(day, percent))
+    for err in list404:
+        parsedList.append("  {}: {}% 404 Responses".format(err[-1], err[0]))
     return parsedList
 
 

@@ -4,7 +4,7 @@ CREATE OR REPLACE VIEW times AS
          COUNT(log.time) as number_of_views
   FROM log
   JOIN articles
-  ON log.path LIKE CONCAT('%', articles.slug, '%')
+  ON log.path = CONCAT('/article/', articles.slug)
   JOIN authors
   ON authors.id = articles.author
   GROUP BY 1, 2

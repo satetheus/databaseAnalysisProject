@@ -12,9 +12,9 @@ WITH trunc_date AS (
   GROUP BY 3)
 
 
-SELECT bad/(bad+good+0.0)*100 as percent,
+SELECT ROUND(bad/(bad+good+0.0)*100, 2) as percent,
        good,
        bad,
-       day
+       TO_CHAR(day, 'dd/mm/yyyy')
 FROM trunc_date
 WHERE bad/(bad+good+0.0) > 0.01

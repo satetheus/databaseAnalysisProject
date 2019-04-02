@@ -10,6 +10,12 @@ A tool for analysis of the newsdata database. This connects to the database, the
 
 
 ## Setup:
+  NEEDED:
+    vagrant/virtualbox Setup
+    access to db to create views
+    link to newsdata.sql file
+    how to import database
+
   1. Clone the fsnd-1 repository. You can run:
   ```bash
   git clone https://github.com/satetheus/fsnd-1
