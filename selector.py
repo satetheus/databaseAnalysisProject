@@ -72,13 +72,13 @@ def parseHigh404():
       None
     Outputs:
       List of strings for the high 404 response days, starting with a
-      header at parsedList[0], & a set of days with above 1.5% 404 responses.
+      header at formatted404[0], & a set of days with above 1.5% 404 responses.
     """
-    parsedList = ['\nDays with more than 1% of responses ending in 404:']
-    list404 = runSQLFile('queries/high404.sql')
-    for err in list404:
-        parsedList.append("  {}: {}% 404 Responses".format(err[-1], err[0]))
-    return parsedList
+    formatted404 = ['\nDays with more than 1% of responses ending in 404:']
+    times404ed = runSQLFile('queries/high404.sql')
+    for err in times404ed:
+        formatted404.append("  {}: {}% 404 Responses".format(err[-1], err[0]))
+    return formatted404
 
 
 if __name__ == "__main__":
