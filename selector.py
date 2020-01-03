@@ -36,11 +36,12 @@ def parsePopAuthor():
       parsedList[0], & a set of strings detailing article name with number
       of views.
     """
-    parsedList = ['\nTop Authors:']
-    authorList = runSQLFile('queries/popAuthor.sql')
-    for author in authorList:
-        parsedList.append("  {} - {} veiws".format(author[0], int(author[1])))
-    return parsedList
+    formattedAuthors = ['\nTop Authors:']
+    authors = runSQLFile('queries/popAuthor.sql')
+    for author in authors:
+        formattedAuthors.append(
+            "  {} - {} veiws".format(author[0], int(author[1])))
+    return formattedAuthors
 
 
 def parsePopArticle():
