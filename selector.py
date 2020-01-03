@@ -15,11 +15,12 @@ def runSQLFile(filePath):
     """
     with open(filePath, 'r') as file:
         queryStatement = file.read()
-    conn = psycopg2.connect(database=dbname, user=dbuser, password=userPass)
-    cursor = conn.cursor()
+    connection = psycopg2.connect(
+        database=dbname, user=dbuser, password=userPass)
+    cursor = connection.cursor()
     cursor.execute(queryStatement)
     select = cursor.fetchall()
-    conn.close()
+    connection.close()
     return select
 
 
