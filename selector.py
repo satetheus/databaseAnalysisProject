@@ -33,7 +33,7 @@ def parsePopAuthor():
       None
     Outputs:
       List of strings for the top authors, starting with a header at
-      parsedList[0], & a set of strings detailing article name with number
+      formattedAuthors[0], & a set of strings detailing article name with number
       of views.
     """
     formattedAuthors = ['\nTop Authors:']
@@ -53,13 +53,14 @@ def parsePopArticle():
       None
     Outputs:
       List of strings for the top 3 articles, starting with a header at
-      parsedList[0], & 3 strings detailing author name with number of views.
+      formattedArticles[0], & 3 strings detailing author name with number of views.
     """
-    parsedList = ['\nTop 3 Articles:']
-    articleList = runSQLFile('queries/popArticle.sql')
-    for art in articleList:
-        parsedList.append("  {} - {} veiws".format(art[0], int(art[1])))
-    return parsedList
+    formattedArticles = ['\nTop 3 Articles:']
+    articles = runSQLFile('queries/popArticle.sql')
+    for article in articles:
+        formattedArticles.append(
+            "  {} - {} veiws".format(article[0], int(article[1])))
+    return formattedArticles
 
 
 def parseHigh404():
